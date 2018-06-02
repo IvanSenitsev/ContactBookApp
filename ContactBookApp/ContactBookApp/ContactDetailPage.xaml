@@ -20,9 +20,16 @@
                 
             </TableSection>
             <TableSection Title="Other">
-               
-                <SwitchCell Text="Blocked" On="False"/>
+             <SwitchCell Text="Blocked" On="False"/>
+                <ViewCell>
+                    <StackLayout>
+                        <Button Text="Save" Clicked="Button_Clicked"/>
+                    </StackLayout>
+                </ViewCell>
             </TableSection>
+            
         </TableRoot>
+        
+        
     </TableView>
 </ContentPage>
