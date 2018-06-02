@@ -15,7 +15,10 @@ namespace ContactBookApp
 		public ContactDetailPage (Contact contact)
 		{
 			InitializeComponent ();
-            lblInfo.Text = contact.firstName;
+            entFirstName.Text = contact.firstName;
+            entLastName.Text = contact.lastName;
+            entPhone.Text = contact.phone;
+            entEmail.Text = contact.email;
             
 		}
 	}

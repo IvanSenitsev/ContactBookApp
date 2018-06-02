@@ -2,11 +2,27 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ContactBookApp.ContactDetailPage">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label x:Name="lblInfo"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ContentPage.Content>
+    
+    <TableView Intent="Form">
+        <!--Общее дерево меню элементов-->
+        <TableRoot>
+            <!--Подразделы меню элементов-->
+            <TableSection Title="Name">
+                <!--Элемент подраздела меню-->
+                <EntryCell x:Name="entFirstName" Label="First Name" Placeholder="John"/>
+                <EntryCell x:Name="entLastName" Label="Last Name" Placeholder="Smith"/>
+              
+                </TableSection>
+            <TableSection Title="Contact">
+                <!--Элемент подраздела меню-->
+                <EntryCell x:Name="entPhone" Label="Phone" Placeholder="+37255608815" Keyboard="Telephone"/>
+                <EntryCell x:Name="entEmail" Label="Email" Placeholder="john@mail.ru" Keyboard="Email"/>
+                
+            </TableSection>
+            <TableSection Title="Other">
+               
+                <SwitchCell Text="Blocked" On="False"/>
+            </TableSection>
+        </TableRoot>
+    </TableView>
 </ContentPage>
