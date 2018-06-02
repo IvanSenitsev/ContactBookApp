@@ -9,14 +9,14 @@
             <!--Подразделы меню элементов-->
             <TableSection Title="Name">
                 <!--Элемент подраздела меню-->
-                <EntryCell x:Name="entFirstName" Label="First Name" Placeholder="John"/>
-                <EntryCell x:Name="entLastName" Label="Last Name" Placeholder="Smith"/>
+                <EntryCell x:Name="entFirstName" Label="First Name" Placeholder="John" Text=""/>
+                <EntryCell x:Name="entLastName" Label="Last Name" Placeholder="Smith" Text=""/>
               
                 </TableSection>
             <TableSection Title="Contact">
                 <!--Элемент подраздела меню-->
-                <EntryCell x:Name="entPhone" Label="Phone" Placeholder="+37255608815" Keyboard="Telephone"/>
-                <EntryCell x:Name="entEmail" Label="Email" Placeholder="john@mail.ru" Keyboard="Email"/>
+                <EntryCell x:Name="entPhone" Label="Phone" Placeholder="+37255608815" Keyboard="Telephone" Text=""/>
+                <EntryCell x:Name="entEmail" Label="Email" Placeholder="john@mail.ru" Keyboard="Email" Text=""/>
                 
             </TableSection>
             <TableSection Title="Other">

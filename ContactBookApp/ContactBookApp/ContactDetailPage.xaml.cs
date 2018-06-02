@@ -19,30 +19,33 @@ namespace ContactBookApp
 			InitializeComponent ();
             contact = _contact;
             mainPage = _mainPage;
-            entFirstName.Text = contact.firstName;
-            entLastName.Text = contact.lastName;
-            entPhone.Text = contact.phone;
-            entEmail.Text = contact.email;
-            
+            if (contact.newContact == false)
+            {
+                entFirstName.Text = contact.firstName;
+                entLastName.Text = contact.lastName;
+                entPhone.Text = contact.phone;
+                entEmail.Text = contact.email;
+            }
 		}
 
-        async private void Button_Clicked(object sender, EventArgs e)
+        private void Button_Clicked(object sender, EventArgs e)
         {
-            if (entFirstName.Text == "")
+           
+            if (entFirstName.Text =="")
             {
-              await  DisplayAlert("Attention", "Please enter the name.","OK");
+              DisplayAlert("Attention", "Please enter the name.","OK");
             }
             else if (entLastName.Text == "")
             {
-                await DisplayAlert("Attention", "Please enter the last name.", "OK");
+                DisplayAlert("Attention", "Please enter the last name.", "OK");
             }
             else if (entPhone.Text == "")
             {
-                await DisplayAlert("Attention", "Please enter phone number.", "OK");
+                DisplayAlert("Attention", "Please enter phone number.", "OK");
             }
             else if (entEmail.Text == "")
             {
-                await DisplayAlert("Attention", "Please enter email.", "OK");
+                DisplayAlert("Attention", "Please enter email.", "OK");
             }
             else if(contact.newContact==true)
             {
@@ -54,8 +57,8 @@ namespace ContactBookApp
                 contact.email = entEmail.Text;
 
                 mainPage.AddNewContact(contact);
-               await DisplayAlert("Attention", "New Contact Added", "OK");
-               await Navigation.PopAsync();
+                BackMainPage("New Contact Added");
+               
 
             }
             else if (contact.newContact == false)
@@ -69,8 +72,14 @@ namespace ContactBookApp
                 contact.email = entEmail.Text;
 
                 mainPage.ChangeContact(contact);
-               await DisplayAlert("Attention", "Contact Changet", "OK");
-               await Navigation.PopAsync();
+                BackMainPage("Contact Changet");
+               
+            }
+
+            async void BackMainPage( string  _text)
+            {
+                await DisplayAlert("Attention", _text, "OK");
+                await Navigation.PopAsync();
             }
         }
 
