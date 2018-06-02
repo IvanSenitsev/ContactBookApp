@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ContactBookApp.Models
 {
-    class Contact
+    public class Contact
     {
         //нужен для выяснения новый или старый контакт 0 новый 1 старый
         public int id { get; set; }

@@ -4,9 +4,9 @@
              xmlns:local="clr-namespace:ContactBookApp"
              x:Class="ContactBookApp.MainPage"
              Title="ContactBook"
-             >
+              >
 
-    <ListView x:Name="listView">
+    <ListView x:Name="listView" ItemSelected="Handle_ItemSelected">
         <ListView.ItemTemplate>
             <DataTemplate>
                 <ViewCell>

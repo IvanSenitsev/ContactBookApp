@@ -27,6 +27,25 @@ namespace ContactBookApp
             listView.ItemsSource = _contacts;
         }
 
+        async void Handle_ItemSelected(object sender, Xamarin.Forms.SelectedItemChangedEventArgs e)
+        {
+
+
+            //если не поставеть условие!!!! получем бесконечный цыкл
+            
+            if (e.SelectedItem == null)
+				return;
+                
+
+            var contact = e.SelectedItem as Contact;
+            await Navigation.PushAsync(new ContactDetailPage(contact));
+            
+            //для того чтобы при возврате на страницу элемент листа небыл выделин
+            listView.SelectedItem = null;
+
+        }
+
+
         private void Call_Clicked(object sender, EventArgs e)
         {
             var menuItem = sender as MenuItem;
