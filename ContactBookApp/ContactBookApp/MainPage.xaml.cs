@@ -12,39 +12,51 @@ namespace ContactBookApp
 {
 	public partial class MainPage : ContentPage
 	{
-        private ObservableCollection<Models.Contact> _contacts;
-        public MainPage()
+        public ObservableCollection<Models.Contact> _contacts;
+        private Contact changetContact;
+        public MainPage(Contact contact =null)
 		{
            
             InitializeComponent();
-            _contacts = new ObservableCollection<Contact>
-            {
-                new Contact{firstName="Anna",lastName="Popova",id=1,phone="+372687865",email="anna44@mail.ru"},
-                new Contact{firstName="Peter",lastName="Black",id=1,phone="+372830012",email="straight@qiq.ru"},
-                new Contact{firstName="Rassel",lastName="Strong",id=1,phone="+372118494",email="rasselm@gmail.com"}
-            };
-
+            _contacts = new ObservableCollection<Contact>();
+            _contacts.Add(new Contact {newContact=false, firstName = "Anna", lastName = "Popova", id = _contacts.Count, phone = "+372687865", email = "anna44@mail.ru" });
+            _contacts.Add(new Contact {newContact = false, firstName = "Peter", lastName = "Black", id = _contacts.Count, phone = "+372830012", email = "straight@qiq.ru" });
+            _contacts.Add(new Contact {newContact = false, firstName = "Rassel", lastName = "Strong", id = _contacts.Count, phone = "+372118494", email = "rasselm@gmail.com"});
             listView.ItemsSource = _contacts;
         }
 
+        //метод для добовления нового контакта
+        public void AddNewContact(Contact contact)
+        {
+            _contacts.Add(contact);
+        }
+       
+        //метод для изменения имеющегося контакта
+        public void ChangeContact(Contact contact)
+        {
+            //удаляем изменяемый контакт
+            _contacts.Remove(changetContact);
+            contact.id = _contacts.Count;
+            _contacts.Add(contact);
+        }
+        
+
         async void Handle_ItemSelected(object sender, Xamarin.Forms.SelectedItemChangedEventArgs e)
         {
-
-
             //если не поставеть условие!!!! получем бесконечный цыкл
-            
             if (e.SelectedItem == null)
 				return;
-                
-
             var contact = e.SelectedItem as Contact;
-            await Navigation.PushAsync(new ContactDetailPage(contact));
-            
+            changetContact = contact;
+
+            await Navigation.PushAsync(new ContactDetailPage(contact,this));
             //для того чтобы при возврате на страницу элемент листа небыл выделин
             listView.SelectedItem = null;
-
         }
-
+        async private void ToolbarItem_Activated(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new ContactDetailPage(new Contact {newContact=true }, this));
+        }
 
         private void Call_Clicked(object sender, EventArgs e)
         {

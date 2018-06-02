@@ -13,10 +13,12 @@ namespace ContactBookApp
 	public partial class ContactDetailPage : ContentPage
 	{
         private Contact contact;
-		public ContactDetailPage (Contact _contact)
+        private MainPage mainPage;
+		public ContactDetailPage (Contact _contact ,MainPage _mainPage)
 		{
 			InitializeComponent ();
             contact = _contact;
+            mainPage = _mainPage;
             entFirstName.Text = contact.firstName;
             entLastName.Text = contact.lastName;
             entPhone.Text = contact.phone;
@@ -24,34 +26,54 @@ namespace ContactBookApp
             
 		}
 
-        private void Button_Clicked(object sender, EventArgs e)
+        async private void Button_Clicked(object sender, EventArgs e)
         {
             if (entFirstName.Text == "")
             {
-                DisplayAlert("Attention", "Please enter the name.","OK");
+              await  DisplayAlert("Attention", "Please enter the name.","OK");
             }
             else if (entLastName.Text == "")
             {
-                DisplayAlert("Attention", "Please enter the last name.", "OK");
+                await DisplayAlert("Attention", "Please enter the last name.", "OK");
             }
             else if (entPhone.Text == "")
             {
-                DisplayAlert("Attention", "Please enter phone number.", "OK");
+                await DisplayAlert("Attention", "Please enter phone number.", "OK");
             }
             else if (entEmail.Text == "")
             {
-                DisplayAlert("Attention", "Please enter email.", "OK");
+                await DisplayAlert("Attention", "Please enter email.", "OK");
             }
-            else if(contact.id==0)
+            else if(contact.newContact==true)
             {
-                DisplayAlert("Attention", "New Contact Added", "OK");
                 //добовляем новый контакт
+                contact.newContact=false;
+                contact.firstName = entFirstName.Text;
+                contact.lastName = entLastName.Text;
+                contact.phone = entPhone.Text;
+                contact.email = entEmail.Text;
+
+                mainPage.AddNewContact(contact);
+               await DisplayAlert("Attention", "New Contact Added", "OK");
+               await Navigation.PopAsync();
+
             }
-            else if (contact.id == 1)
+            else if (contact.newContact == false)
             {
-                DisplayAlert("Attention", "Contact Changet", "OK");
-                //добовляем новый контакт
+               
+                //изменяем старый контакт
+                contact.id = mainPage._contacts.Count;
+                contact.firstName = entFirstName.Text;
+                contact.lastName = entLastName.Text;
+                contact.phone = entPhone.Text;
+                contact.email = entEmail.Text;
+
+                mainPage.ChangeContact(contact);
+               await DisplayAlert("Attention", "Contact Changet", "OK");
+               await Navigation.PopAsync();
             }
         }
+
+        
     }
 }

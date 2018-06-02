@@ -92,6 +92,11 @@ E:\My_Work\GitHub\ContactBookApp\ContactBookApp\ContactBookApp.Android\obj\Debug
 E:\My_Work\GitHub\ContactBookApp\ContactBookApp\ContactBookApp.Android\obj\Debug\android\assets\System.Xml.pdb
 E:\My_Work\GitHub\ContactBookApp\ContactBookApp\ContactBookApp.Android\obj\Debug\android\assets\Xamarin.Forms.Core.pdb
 E:\My_Work\GitHub\ContactBookApp\ContactBookApp\ContactBookApp.Android\obj\Debug\android\assets\Xamarin.Forms.Xaml.pdb
+E:\My_Work\GitHub\ContactBookApp\ContactBookApp\ContactBookApp.Android\obj\Debug\res\drawable\plus.png
+E:\My_Work\GitHub\ContactBookApp\ContactBookApp\ContactBookApp.Android\obj\Debug\res\drawable-hdpi\plus.png
+E:\My_Work\GitHub\ContactBookApp\ContactBookApp\ContactBookApp.Android\obj\Debug\res\drawable-xhdpi\plus.png
+E:\My_Work\GitHub\ContactBookApp\ContactBookApp\ContactBookApp.Android\obj\Debug\res\drawable-xxhdpi\plus.png
+E:\My_Work\GitHub\ContactBookApp\ContactBookApp\ContactBookApp.Android\obj\Debug\res\drawable-xxxhdpi\plus.png
 E:\My_Work\GitHub\ContactBookApp\ContactBookApp\ContactBookApp.Android\bin\Debug\ContactBookApp.Android.dll
 E:\My_Work\GitHub\ContactBookApp\ContactBookApp\ContactBookApp.Android\obj\Debug\linksrc\ContactBookApp.Android.dll.mdb
 E:\My_Work\GitHub\ContactBookApp\ContactBookApp\ContactBookApp.Android\obj\Debug\linksrc\FormsViewGroup.dll.mdb

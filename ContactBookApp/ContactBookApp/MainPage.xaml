@@ -5,7 +5,10 @@
              x:Class="ContactBookApp.MainPage"
              Title="ContactBook"
               >
-
+    <ContentPage.ToolbarItems>
+        <!--свойство Order отвечает за различное отображение понели инструментов-->
+        <ToolbarItem Icon="plus.png" Text="Add" Activated="ToolbarItem_Activated"  Order="Secondary"/>
+    </ContentPage.ToolbarItems>
     <ListView x:Name="listView" ItemSelected="Handle_ItemSelected">
         <ListView.ItemTemplate>
             <DataTemplate>
